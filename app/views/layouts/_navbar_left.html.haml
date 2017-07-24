@@ -1,2 +1,3 @@
-%li= link_to 'cos tu bedzie', '#'
-%li= link_to 'tu tez', '#'
+- if user_signed_in?
+  %li= link_to 'cos tu bedzie', '#'
+  %li= link_to 'tu tez', '#'
