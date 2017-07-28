@@ -1,7 +1,8 @@
 class MicropostsController < ApplicationController
   expose(:microposts) { Micropost.all }
   expose(:micropost, attributes: :micropost_params)
-
+  before_action :authenticate_user!
+  
   def create
     micropost = current_user.microposts.build(micropost_params)
     if micropost.save

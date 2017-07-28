@@ -4,7 +4,7 @@ require 'rails_helper'
 feature 'Registration' do
   scenario 'User creates a new account' do
     visit '/users/sign_up'
-    fill_in 'Email', with: 'jan@wp.pl'
+    fill_in 'Email', with: 'jan1@wp.pl'
     fill_in 'Name', with: 'janek'
     fill_in 'Password', with: '11111111'
     fill_in 'Password confirmation', with: '11111111'
