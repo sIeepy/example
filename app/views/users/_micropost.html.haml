@@ -1,0 +1,13 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th #
+      %th Content
+      %th Created at
+  %tbody
+    - @posts.each_with_index do |post, i|
+      %tr
+        %td= i+1
+        %td= post.content
+        %td= post.decorate.creation_date
+        %td= post.user.name

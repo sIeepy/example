@@ -2,13 +2,13 @@ class MicropostsController < ApplicationController
   expose(:microposts) { Micropost.all }
   expose(:micropost, attributes: :micropost_params)
   before_action :authenticate_user!
-  
+
   def create
     micropost = current_user.microposts.build(micropost_params)
     if micropost.save
       redirect_to microposts_path, notice: I18n.t('shared.created', resource: 'Micropost')
     else
-      render :new
+      redirect_to microposts_path
     end
   end
 
