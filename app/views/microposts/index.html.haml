@@ -16,3 +16,7 @@
         %td= micropost.content
         %td= micropost.decorate.creation_date
         %td= micropost.user.name
+        %td
+          = link_to micropost_path(micropost), { method: :delete, title: t('shared.delete') } do
+            %button.btn.btn-default
+              = fa_icon "times"
