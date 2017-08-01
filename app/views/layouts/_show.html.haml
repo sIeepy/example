@@ -1,0 +1,7 @@
+- if user_signed_in?
+  %h2
+    = image_tag current_user.gravatar_url
+    = current_user.name
+  .list-scss
+    %ul.nav.nav-pills.nav-stacked
+      = render 'layouts/links'

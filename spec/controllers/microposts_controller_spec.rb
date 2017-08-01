@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe MicropostsController do
   let(:user) { create(:user) }
 
-
   before { sign_in user }
 
   describe 'GET#show' do
@@ -73,7 +72,7 @@ RSpec.describe MicropostsController do
 
     it 'flashes info' do
       delete :destroy, params: { id: micropost.id }
-      expect(flash[:notice]).to eq I18n.t('shared.deleted', resource: 'Student')
+      expect(flash[:notice]).to eq I18n.t('shared.deleted', resource: 'Micropost')
     end
 
     it 'redirects to the microposts' do

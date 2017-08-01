@@ -1,4 +1,0 @@
-= form_for :micropost, url: microposts_path, html: { method: :post } do |f|
-  = f.text_area :content, cols: 50, rows: 5, placeholder: "Write new post"
-  .text-center
-    = f.submit 'Create post', class: 'btn btn-default', id: 'create_micropost'

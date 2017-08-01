@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  expose(:microposts) { Micropost.all }
+  expose(:users) { User.search(params[:search]) }
 
-  def show
-    @posts = current_user.microposts
-  end
+  def index; end
 end

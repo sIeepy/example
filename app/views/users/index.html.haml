@@ -1,0 +1,17 @@
+.row
+  .col-lg-8.col-lg-offset-2
+    .text-center
+      =render 'search'
+    %table.table.table-striped
+      .text-center
+        %thead
+          %tr
+            %th #
+            %th User
+            %th Follow
+        %tbody
+          - users.each_with_index do |user, i|
+            %tr
+              %td= i+1
+              %td= user.name
+              %td.btn.btn-primary Fallow

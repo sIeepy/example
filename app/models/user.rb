@@ -6,4 +6,13 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def self.search(search)
+
+   if search
+     where("name like ?", "%#{search}%")
+   else
+     all
+   end
+  end
 end
