@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let(:user) { create(:user) }
 
-  describe "GET#show" do
-    it "returns http success" do
+  describe 'GET#index' do
+    it 'template rendering action' do
       sign_in user
-      get :show, params: { id: user.id }
-      expect(response).to have_http_status(:success)
+      get :index
+      response.should render_template(:index)
     end
   end
 end
