@@ -10,6 +10,6 @@ RSpec.describe Micropost, type: :model do
   it "should return posts in the correct order" do
     @older_post = FactoryGirl.create(:micropost, created_at: 1.day.ago)
     @newer_post = FactoryGirl.create(:micropost, created_at: 1.hour.ago)
-    Micropost.all.should == [@newer_post, @older_post]
+    expect(Micropost.all).to eq [@newer_post, @older_post]
   end
 end

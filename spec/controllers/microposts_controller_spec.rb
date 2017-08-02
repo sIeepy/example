@@ -10,21 +10,21 @@ RSpec.describe MicropostsController do
     it 'template rendering action' do
       get :show, params: { id: micropost.id }
       expect(response).to have_http_status(:success)
-      response.should render_template(:show)
+      expect(response).to render_template :show
     end
   end
 
   describe 'GET#index' do
     it 'template rendering action' do
       get :index
-      response.should render_template(:index)
+      expect(response).to render_template :index
     end
   end
 
   describe 'GET #new' do
     it 'template rendering action' do
       get :new
-      response.should render_template(:new)
+      expect(response).to render_template :new
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe MicropostsController do
 
       it 'redirects to the new contact' do
         post :create, params: { micropost: FactoryGirl.attributes_for(:micropost) }
-        response.should redirect_to microposts_path
+        expect(response).to redirect_to microposts_path
       end
     end
 
@@ -57,7 +57,7 @@ RSpec.describe MicropostsController do
       it 'rerenders new method' do
         post :create, params: { micropost: FactoryGirl.attributes_for(:micropost_invalid) }
         get :new
-        response.should render_template(:new)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -77,7 +77,7 @@ RSpec.describe MicropostsController do
 
     it 'redirects to the microposts' do
       delete :destroy, params: { id: micropost.id }
-      response.should redirect_to microposts_path
+      expect(response).to redirect_to microposts_path
     end
   end
 end

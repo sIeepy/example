@@ -8,11 +8,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def self.search(search)
+    if search
+      where("name like ?", "%#{search}%")
+    else
+      all
+    end
+  end
 
-   if search
-     where("name like ?", "%#{search}%")
-   else
-     all
-   end
+  def self.all_except(user)
+    where.not(id: user)
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe HomeController, type: :controller do
   describe 'GET#welcome' do
     it 'template rendering action' do
       get :welcome
-      response.should render_template(:welcome)
+      expect(response).to render_template :welcome
     end
   end
 end

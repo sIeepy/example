@@ -1,0 +1,11 @@
+.text-center
+  = image_tag current_user.gravatar_url
+  %br
+  .h2
+    = user.name
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th.text-center Content
+        %th.text-center Created at
+    =render microposts

@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rails_helper'
 
 feature 'User sign in and visit profile page' do

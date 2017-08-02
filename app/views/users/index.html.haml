@@ -13,5 +13,5 @@
           - users.each_with_index do |user, i|
             %tr
               %td= i+1
-              %td= user.name
+              %td= link_to user.name, user, :class => "list_color"
               %td.btn.btn-primary Fallow
