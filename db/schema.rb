@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724155603) do
+ActiveRecord::Schema.define(version: 20170809172024) do
+
+  create_table "fallowers", force: :cascade do |t|
+    t.integer "fallower_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fallower_id", "user_id"], name: "index_fallowers_on_fallower_id_and_user_id", unique: true
+    t.index ["fallower_id"], name: "index_fallowers_on_fallower_id"
+  end
+
+  create_table "fallowings", force: :cascade do |t|
+    t.integer "fallowing_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fallowing_id", "user_id"], name: "index_fallowings_on_fallowing_id_and_user_id", unique: true
+    t.index ["fallowing_id"], name: "index_fallowings_on_fallowing_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -19,6 +37,26 @@ ActiveRecord::Schema.define(version: 20170724155603) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "relations", force: :cascade do |t|
+    t.integer "fallower_id"
+    t.integer "fallowed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fallowed_id"], name: "index_relations_on_fallowed_id"
+    t.index ["fallower_id", "fallowed_id"], name: "index_relations_on_fallower_id_and_fallowed_id", unique: true
+    t.index ["fallower_id"], name: "index_relations_on_fallower_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,15 +3,13 @@
     .text-center
       =render 'search'
     %table.table.table-striped
+      %thead
+        %tr
+          %th.text-center #
+          %th.text-center User
       .text-center
-        %thead
-          %tr
-            %th #
-            %th User
-            %th Follow
         %tbody
           - users.each_with_index do |user, i|
-            %tr
+            %tr.text-center
               %td= i+1
               %td= link_to user.name, user, :class => "list_color"
-              %td.btn.btn-primary Fallow
