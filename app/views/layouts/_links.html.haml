@@ -1,5 +1,6 @@
 %li.nav-pills= link_to 'Posts', microposts_path, :class => "list_color"
 %li.nav-pills= link_to 'Users', users_path, :class => "list_color"
+= render 'shared/stats' 
 %li.divider
 %li.nav-pills= link_to 'Edit profile', edit_user_registration_path, :class => "list_color"
 %li.nav-pills= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "list_color"

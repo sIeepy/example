@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      where("name like ?", "%#{search}%")
+      where('name like ?', "%#{search}%")
     else
       all
     end
@@ -30,18 +30,15 @@ class User < ApplicationRecord
     where.not(id: user)
   end
 
-  # Follows a user.
-def follow(other_user)
-  following << other_user
-end
+  def follow(other_user)
+    following << other_user
+  end
 
-# Unfollows a user.
-def unfollow(other_user)
-  following.delete(other_user)
-end
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
 
-# Returns true if the current user is following the other user.
-def following?(other_user)
-  following.include?(other_user)
-end
+  def following?(other_user)
+    following.include?(other_user)
+  end
 end

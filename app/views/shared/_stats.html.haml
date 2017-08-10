@@ -1,10 +1,3 @@
 - @user ||= current_user
-.stats
-  %a{:href => following_user_path(@user)}
-    %strong#following.stat
-      = @user.following.count
-    following
-  %a{:href => followers_user_path(@user)}
-    %strong#followers.stat
-      = @user.followers.count
-    followers
+%li.nav-pills= link_to "Following #{@user.following.count}", following_user_path(@user), :class => "list_color"
+%li.nav-pills= link_to "Followers #{@user.followers.count}", followers_user_path(@user), :class => "list_color"
