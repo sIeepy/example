@@ -5,4 +5,9 @@ class MicropostDecorator < Draper::Decorator
     object.created_at.strftime("%d-%m-%y %H:%M")
   end
 
+  def post_age
+    # object.created_at > 24.days.ago ? "New" : "Old"
+    return "New" if object.created_at > 24.days.ago
+    "Old"
+  end
 end

@@ -12,8 +12,13 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    micropost.destroy
-    redirect_to microposts_path, notice: I18n.t('shared.deleted', resource: 'Micropost')
+    # if current_user.id == micropost.user_id
+      micropost.destroy
+      redirect_to microposts_path, notice: I18n.t('shared.deleted', resource: 'Micropost')
+    # else
+    #   redirect_to microposts_path
+    #   flash[:error] = "not good"
+    # end
   end
 
   private

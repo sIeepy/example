@@ -6,6 +6,7 @@
   %thead
     %tr
       %th #
+      %th Age
       %th Content
       %th Created at
       %th Create by user
@@ -13,6 +14,7 @@
     - microposts.each_with_index do |micropost, i|
       %tr
         %td= i+1
+        %td= micropost.decorate.post_age
         %td= micropost.content
         %td= micropost.decorate.creation_date
         %td= micropost.user.name
